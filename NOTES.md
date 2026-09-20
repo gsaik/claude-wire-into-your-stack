@@ -13,6 +13,4 @@ Added `/review-resource`, which checks a named resource's route, store, server m
 Added a `PreToolUse` hook on the `Bash` matcher that inspects every shell command before it runs and denies any `git push` containing `--force` or `-f`. It prevents rather than reacts — the push is blocked before it executes — and it fires on the `PreToolUse` event, which runs before the tool is invoked.
 
 ## Run headless
-Picked a safe command that runs tests with 
- claude -p "run tests" --allowedTools Bash
- No other toolts were allowed since only Bash is needed for tests.
+Running `claude -p "run tests" --allowedTools Bash` executes the test suite non-interactively. Only `Bash` was allowed because `npm test` is a single shell command — no file reads, writes, or web fetches are required. Restricting to `Bash` means Claude cannot inspect or modify any source files during the run, keeping the headless invocation safe to use in CI or as a one-off check.
