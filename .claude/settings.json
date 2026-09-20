@@ -1,13 +1,4 @@
 {
-  "permissions": {
-    "allow": [
-      "mcp__filesystem__read_file",
-      "mcp__filesystem__read_multiple_files"
-    ],
-    "deny": [
-      "mcp__filesystem__delete_file"
-    ]
-  },
   "hooks": {
     "PreToolUse": [
       {
