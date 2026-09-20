@@ -6,9 +6,13 @@
       "args": [
         "-y",
         "@modelcontextprotocol/server-filesystem",
-        "/Users/galynasaik/kodree-study/claude-wire-into-your-stack"
+        "."
       ],
-      "env": {}
+      "env": {},
+      "permissions": {
+        "allow": ["mcp__filesystem__read_file", "mcp__filesystem__read_multiple_files"],
+        "deny": ["mcp__filesystem__delete_file"]
+      }
     }
   }
 }
